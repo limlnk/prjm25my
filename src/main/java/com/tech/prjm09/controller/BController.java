@@ -53,25 +53,35 @@ public class BController {
 		
 		return "write_view";
 	}
+	
 	@RequestMapping("/write")
 	public String write(HttpServletRequest request,
 			Model model) {
 		System.out.println("write() ctr");
 //		db글쓰기동작
-		model.addAttribute("request",request);
-		command=new BWriteCommand();
-		command.execute(model);
+//		model.addAttribute("request",request);
+//		command=new BWriteCommand();
+//		command.execute(model);
+		
+		String bname=request.getParameter("bname");
+		String btitle=request.getParameter("btitle");
+		String bcontent=request.getParameter("bcontent");
+		iDao.write(bname, btitle, bcontent);
+
 		//
 		return "redirect:list";
 	}
+	
 	@RequestMapping("/content_view")
 	public String content_view(HttpServletRequest request,
 			Model model) {
 		System.out.println("content_view() ctr");
-		model.addAttribute("request",request);
-		command=new BContentCommand();
-		command.execute(model);
-		
+//		model.addAttribute("request",request);
+//		command=new BContentCommand();
+//		command.execute(model);
+		String bid=request.getParameter("bid");
+		BDto dto=iDao.contentView(bid);
+		model.addAttribute("content_view",dto);
 		return "content_view";
 	}
 	@RequestMapping("/modify_view")
