@@ -15,4 +15,5 @@ public interface IDao {
 	public void write(String bname, String btitle,
 			String bcontent);
 	public BDto contentView(String sbid);
+
 }

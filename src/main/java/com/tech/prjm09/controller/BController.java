@@ -53,6 +53,7 @@ public class BController {
 		
 		return "write_view";
 	}
+	
 	@RequestMapping("/write")
 	public String write(HttpServletRequest request,
 			Model model) {
@@ -66,9 +67,11 @@ public class BController {
 		String btitle=request.getParameter("btitle");
 		String bcontent=request.getParameter("bcontent");
 		iDao.write(bname, btitle, bcontent);
+
 		//
 		return "redirect:list";
 	}
+	
 	@RequestMapping("/content_view")
 	public String content_view(HttpServletRequest request,
 			Model model) {
