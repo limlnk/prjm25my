@@ -29,6 +29,19 @@
 	BDATE,BHIT,BGROUP,BSTEP,BINDENT 
 	FROM REPLYBOARD WHERE BID=#{param1}
     </select>
+    <update id="modify">
+    UPDATE REPLYBOARD 
+	SET BNAME=#{PARAM1},BTITLE=#{PARAM2},BCONTENT=#{PARAM3}
+	WHERE BID=#{PARAM4}
+    </update>
     
+    <select id="reply_view">
+    SELECT BID,BNAME,BTITLE,BCONTENT,
+	BDATE,BHIT,BGROUP,BSTEP,BINDENT 
+	FROM REPLYBOARD WHERE BID=#{param1}
+    </select>
+    
+    
+  	
 
 </mapper>
