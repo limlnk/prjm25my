@@ -59,6 +59,7 @@ public class BController {
 			Model model) {
 		System.out.println("write() ctr");
 //		db글쓰기동작
+<<<<<<< feat/jh
 //		model.addAttribute("request",request);
 //		command=new BWriteCommand();
 //		command.execute(model);
@@ -68,6 +69,12 @@ public class BController {
 		
 		iDao.write(bname, btitle, bcontent);
 		
+=======
+		model.addAttribute("request",request);
+		command=new BWriteCommand();
+		command.execute(model);
+		//
+>>>>>>> dev
 		return "redirect:list";
 	}
 	
